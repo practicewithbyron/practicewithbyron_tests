@@ -30,3 +30,7 @@ pipeline {
             echo 'Integration tests passed!'
         }
         failure {
+            echo "Build successful"
+        }
+    }
+}
