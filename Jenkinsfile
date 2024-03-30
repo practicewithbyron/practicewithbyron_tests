@@ -23,9 +23,6 @@ pipeline {
     }
 
     post {
-        always {
-            // Cleanup steps if needed
-        }
         success {
             echo 'Build successful!'
         }
