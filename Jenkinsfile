@@ -4,33 +4,33 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your code from your version control system (e.g., Git)
+                // Checkout code from Git repository
                 git 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
             }
         }
-
         stage('Build') {
             steps {
-                // Build your Maven project
+                // Build the project using Maven
                 sh 'mvn clean package'
             }
         }
-
-        stage('Run Integration Tests') {
+        stage('Run Tests') {
             steps {
-                // Run your integration tests
-                sh 'mvn verify'
+                // Run tests using Maven Surefire plugin
+                sh 'mvn test -Dtest=MongoDBTests'
             }
         }
     }
 
     post {
+        always {
+            // Cleanup steps if needed
+        }
         success {
-            // Notify or perform actions if the pipeline succeeds
-            echo 'Integration tests passed!'
+            echo 'Build successful!'
         }
         failure {
-            echo "Build successful"
+            echo 'Build failed!'
         }
     }
 }
