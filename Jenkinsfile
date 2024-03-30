@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your code from your version control system (e.g., Git)
-                git 'your_repository_url'
+                git 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
             }
         }
 
