@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Bind the secret file credential to a variable
-                withCredentials([file(credentialsId: 'your-credential-id', variable: 'CONFIG_FILE')]) {
+                withCredentials([file(credentialsId: 'd91e0f12-62f5-44e6-b4f5-50a2eff09d28', variable: 'config.properties')]) {
                     sh 'echo "Config file: $CONFIG_FILE"'
                     sh "cp $CONFIG_FILE ./src/main/resources/config.properties"
                 }
