@@ -10,6 +10,11 @@ pipeline {
         }
         stage('Build') {
             steps {
+                // Bind the secret file credential to a variable
+                withCredentials([file(credentialsId: 'your-credential-id', variable: 'CONFIG_FILE')]) {
+                    sh 'echo "Config file: $CONFIG_FILE"'
+                    sh "cp $CONFIG_FILE ./src/main/resources/config.properties"
+                }
                 // Build the project using Maven
                 sh 'mvn clean package -DskipTests -e -X'
             }
