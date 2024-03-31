@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
+                git branch: 'Main', url: 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
             }
         }
         stage('Build') {
