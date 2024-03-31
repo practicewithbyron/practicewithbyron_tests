@@ -6,13 +6,12 @@ pipeline {
             steps {
                 // Checkout code from Git repository
                 git branch: 'Main', url: 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
-                echo 'mvn -version'
             }
         }
         stage('Build') {
             steps {
                 // Build the project using Maven
-                sh 'mvn clean package -e'
+                sh 'mvn clean package -DskipTests -e -X'
             }
         }
         stage('Run Tests') {
