@@ -10,7 +10,7 @@ public class PropertiesReader {
 
     public PropertiesReader(){
         try {
-            input = new FileInputStream("src/test/resources/config.properties");
+            input = getClass().getClassLoader().getResourceAsStream("config.properties");
             properties.load(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
