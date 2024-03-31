@@ -6,6 +6,7 @@ pipeline {
             steps {
                 // Checkout code from Git repository
                 git branch: 'Main', url: 'https://github.com/practicewithbyron/practicewithbyron_tests.git'
+                echo 'mvn -version'
             }
         }
         stage('Build') {
