@@ -17,7 +17,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run tests using Maven Surefire plugin
-                sh 'mvn test -Dtest=MongoDBTests'
+                sh 'mvn test'
             }
         }
     }
