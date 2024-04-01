@@ -1,17 +1,23 @@
-import org.junit.jupiter.api.Test;
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static io.restassured.http.ContentType.*;
+package MongoDB;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import Helper.PropertiesReader;
+import io.restassured.response.Response;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
 import java.util.Properties;
 
-public class MongoDBTests {
+import static io.restassured.RestAssured.given;
+import static io.restassured.http.ContentType.URLENC;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 'Users' collection already created inside mongodb to test the 'readExamAttempt' functionality
+ * - No test setup required
+ */
+@RunWith(JUnit4.class)
+public class ITReadExamAttempt {
     private static final String DATABASE = "PracticeQuestionSetsTests";
     private static final String COLLECTION = "UsersTest";
     private static final Properties properties = new PropertiesReader().properties;
@@ -40,5 +46,4 @@ public class MongoDBTests {
         assertEquals(statusCode, 200);
         assertEquals(expectedResult, responseBody);
     }
-
 }
