@@ -11,11 +11,11 @@ pipeline {
         stage('Build') {
             steps {
                 // Bind the secret file credential to a variable
-                withCredentials([file(credentialsId: 'd91e0f12-62f5-44e6-b4f5-50a2eff09d28', variable: 'CONFIG_FILE')]) {
-                    sh 'mkdir -p src/main/resources'
-                    sh 'echo "Config file: $CONFIG_FILE"'
-                    sh "cp \${CONFIG_FILE} ./src/main/resources/config.properties"
-                }
+//                 withCredentials([file(credentialsId: 'd91e0f12-62f5-44e6-b4f5-50a2eff09d28', variable: 'CONFIG_FILE')]) {
+//                     sh 'mkdir -p src/main/resources'
+//                     sh 'echo "Config file: $CONFIG_FILE"'
+//                     sh "cp \${CONFIG_FILE} ./src/main/resources/config.properties"
+//                 }
                 // Build the project using Maven
                 sh 'mvn clean package -DskipTests -e -X'
             }
