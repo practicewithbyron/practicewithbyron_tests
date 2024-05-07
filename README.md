@@ -1,3 +1,35 @@
+# Overview
+
+## Test Structure
+
+To create lots of tests quickly we will employ a basic standard that all tests will employ
+
+### Startup
+
+Creates the entities and elements if needed for the testing logic.
+
+### Test Logic
+
+Tests the endpoints for correct functionality
+
+<b>Create</b></br>
+Requires an empty database (already created to reduce complexity), requires clean-up or deletion for keep the db tidy
+
+<b>Read</b></br>
+No startup required, databases should be hardcoded with their values to reduce complexity
+
+<b>Update</b></br>
+
+
+<b>Delete</b></br>
+
+
+### Clean up
+
+Delete created entities and elements if created
+
+
+
 # Notes
 It's worth noting that the config file needs to be 'refreshed' by adding this to the build phase
 ```

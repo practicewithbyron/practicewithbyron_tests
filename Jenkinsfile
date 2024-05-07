@@ -14,8 +14,8 @@ pipeline {
                 withCredentials([file(credentialsId: 'd91e0f12-62f5-44e6-b4f5-50a2eff09d28', variable: 'CONFIG_FILE')]) {
                     sh 'rm -rf src/main/resources'  // Remove the existing directory and its contents
                     sh 'mkdir -p src/main/resources' // Create the directory again
-                    sh 'echo "Config file: $CONFIG_FILE"' // Perform other operations as needed
-                    sh "cp \${CONFIG_FILE} ./src/main/resources/config.properties"
+                    sh 'echo "Config file: $CONFIG_FILE"' // Print file to show its there
+                    sh "cp \${CONFIG_FILE} ./src/main/resources/config.properties" // Copy config.properties to local version
                 }
                 // Build the project using Maven
                 sh 'mvn clean package -DskipTests -e -X'
